@@ -1,5 +1,5 @@
-import { drizzle } from "drizzle-orm/mysql2";
-import mysql from "mysql2/promise";
+import { drizzle } from 'drizzle-orm/mysql2';
+import mysql from 'mysql2/promise';
 
 const config: { [key: string]: mysql.ConnectionOptions } = {
   development: {
@@ -9,10 +9,11 @@ const config: { [key: string]: mysql.ConnectionOptions } = {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
   },
-  production: {}
+  test: {},
+  production: {},
 };
 
-const environment = process.env.NODE_ENV || "development";
+const environment = process.env.NODE_ENV || 'development';
 
 export const connection = await mysql.createConnection(config[environment]);
 

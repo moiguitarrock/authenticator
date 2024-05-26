@@ -16,7 +16,10 @@ export const SignupSchema: Schema = {
   role: {
     isString: true,
     notEmpty: true,
-    isIn: { options: [['customer', 'provider']], errorMessage: 'not valid role: customer or provider' },
+    isIn: {
+      options: [['customer', 'provider']],
+      errorMessage: 'not valid role: customer or provider',
+    },
     exists: true,
     optional: false,
   },

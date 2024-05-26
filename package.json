@@ -13,7 +13,8 @@
     "db:migrate": "tsx src/database/migrate.ts",
     "db:studio": "npx drizzle-kit studio",
     "lint": "eslint src/**/*.ts",
-    "format": "eslint src/**/*.ts --fix"
+    "format": "eslint src/**/*.ts --fix",
+    "prettier": "npx prettier . --write"
   },
   "author": "Moises Castellar",
   "license": "ISC",
@@ -44,7 +45,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run lint && npm run prettier"
     }
   }
 }

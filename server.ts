@@ -9,10 +9,10 @@ app.use(bodyParser.json());
 setRouter(app);
 
 app.listen(PORT, () => {
-    console.log(`listening on port ${PORT}`);
+  console.log(`listening on port ${PORT}`);
 });
 
 process.on('SIGINT', function () {
-    console.log("\nGracefully shutting down from SIGINT (Ctrl-C)");
-    process.exit(0);
+  console.log('\nGracefully shutting down from SIGINT (Ctrl-C)');
+  process.exit(0);
 });
