@@ -10,3 +10,9 @@ export const create = async (newUser: NewUser): Promise<number | undefined> => {
   const result = await db.insert(users).values(newUser);
   return result[0].insertId;
 };
+
+export const findById = async (id: number): Promise<User | undefined> => {
+  return db.query.users.findFirst({
+    where: eq(users.id, id),
+  });
+};

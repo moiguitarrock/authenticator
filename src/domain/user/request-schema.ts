@@ -40,3 +40,15 @@ export const SignupSchema: Schema = {
     optional: false,
   },
 };
+
+export const SigninSchema: Schema = {
+  email: {
+    isEmail: true,
+    notEmpty: true,
+    optional: false,
+  },
+  password: {
+    notEmpty: true,
+    optional: false,
+  },
+};
