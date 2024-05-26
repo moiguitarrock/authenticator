@@ -1,0 +1,50 @@
+{
+  "name": "halpmee-api",
+  "version": "1.0.0",
+  "description": "halpmee main API",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run db:migrate && tsc && node dist/server.js",
+    "dev": "npm run db:migrate && tsx --env-file=.env --watch server.ts --clear-screen=false",
+    "db:generate": "npx drizzle-kit generate",
+    "db:migrate": "tsx src/database/migrate.ts",
+    "db:studio": "npx drizzle-kit studio",
+    "lint": "eslint src/**/*.ts",
+    "format": "eslint src/**/*.ts --fix"
+  },
+  "author": "Moises Castellar",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.10",
+    "express": "^4.19.2",
+    "express-validator": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.7",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@tsconfig/node21": "^21.0.3",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "drizzle-kit": "^0.21.4",
+    "husky": "^9.0.11",
+    "prettier": "3.2.5",
+    "tsx": "^4.11.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
