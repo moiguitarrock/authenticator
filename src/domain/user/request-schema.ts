@@ -47,6 +47,7 @@ export const SigninSchema: Schema = {
     notEmpty: true,
     optional: false,
   },
+  // TODO: Add more detailed rules about password complexity
   password: {
     notEmpty: true,
     optional: false,

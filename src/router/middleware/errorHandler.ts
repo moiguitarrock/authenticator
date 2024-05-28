@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpError } from '../../utils/errors';
+import { HttpError, AuthError } from '../../utils/errors';
 
 export const errorHandler = (
   err: Error,
@@ -9,6 +9,12 @@ export const errorHandler = (
 ) => {
   if (err instanceof HttpError) {
     return res.status(err.statusCode).json({ message: err.message });
+  }
+
+  if (err instanceof AuthError) {
+    return res
+      .status(err.statusCode || 401)
+      .json({ message: err.message, code: err.code });
   }
 
   if ('sqlMessage' in err && 'code' in err) {

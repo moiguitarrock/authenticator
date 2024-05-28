@@ -1,18 +1,21 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { User } from '../../domain/user/schema';
+import { AuthError } from '../../utils/errors';
 
 export default (req: Request, res: Response, next: NextFunction) => {
-  const token = req.header('x-auth-token');
+  const { authorization = '' } = req.headers;
+
+  const [_ = null, token = null] = authorization.match(/^Bearer (.+)$/) || [];
+
   if (!token) {
-    return res.status(401).json({ message: 'No token, authorization denied' });
+    throw new AuthError('No token, authorization denied', 'NO_TOKEN');
   }
 
   try {
-    const userDecoded = jwt.verify(token, process.env.JWT_SECRET as string) as any;
+    const userDecoded = jwt.verify(token, process.env.JWT_SECRET as string);
     req.user = userDecoded;
     next();
   } catch (err) {
-    res.status(401).json({ message: 'Token is not valid' });
+    throw new AuthError('Access token is not valid', 'INVALID_ACCESS_TOKEN', 403);
   }
 };

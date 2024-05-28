@@ -1,4 +1,4 @@
-import { mysqlTable, varchar, serial, datetime, mysqlEnum } from 'drizzle-orm/mysql-core';
+import { mysqlTable, varchar, serial, datetime, mysqlEnum, text, index } from 'drizzle-orm/mysql-core';
 import { sql } from 'drizzle-orm';
 
 export const users = mysqlTable('users', {
@@ -8,6 +8,7 @@ export const users = mysqlTable('users', {
   role: mysqlEnum('role', ['customer', 'provider']).notNull(),
   firstName: varchar('firstName', { length: 256 }).notNull(),
   lastName: varchar('lastName', { length: 256 }).notNull(),
+  refreshToken: varchar('refreshToken', { length: 1024 }).notNull(),
   createdAt: datetime('createdAt', { mode: 'date' })
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
