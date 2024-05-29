@@ -47,9 +47,10 @@ export const SigninSchema: Schema = {
     notEmpty: true,
     optional: false,
   },
-  // TODO: Add more detailed rules about password complexity
   password: {
     notEmpty: true,
     optional: false,
+    // TODO: uncomment rules complexity for other environments 
+    // isStrongPassword: { options: { minUppercase: 1, minSymbols: 1, minNumbers: 1, minLength: 8 } }
   },
 };

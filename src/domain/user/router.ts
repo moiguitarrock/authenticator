@@ -14,7 +14,12 @@ router.post(
   validate,
   withTryCatch(controller.signUp),
 );
-router.post('/signin', checkSchema(SigninSchema, ['body']), validate, withTryCatch(controller.signIn));
+router.post(
+  '/signin',
+  checkSchema(SigninSchema, ['body']),
+  validate,
+  withTryCatch(controller.signIn),
+);
 router.post('/refresh', withTryCatch(controller.refresh));
 router.post('/logout', withTryCatch(controller.logout));
 

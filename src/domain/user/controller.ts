@@ -126,7 +126,8 @@ export async function logout(req: Request, res: Response, next: NextFunction) {
   // remove the DB stored refresh token
   await update(req.user?.id, { refreshToken: '' });
   // TODO: Handle the revocation of the access token (logout).
-  // Use a DB in order to allow multiple instances to check for revoked access token
-  // and allow cleanup at centralized DB level.
+  // Use Redis in the future to allow multiple instances to check for revoked access token (redis token blacklist)
   res.status(200).json({});
 }
+
+// TODO: implement google SSO
