@@ -10,7 +10,7 @@ import {
 } from 'drizzle-orm/mysql-core';
 import { sql, relations } from 'drizzle-orm';
 
-import { users } from '../user/schema';
+import { users } from '../users/schema';
 import { providerCategories } from '../providerCategories/schema';
 
 export const providers = mysqlTable('providers', {

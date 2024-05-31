@@ -1,7 +1,7 @@
 import { mysqlTable, varchar, datetime, bigint } from 'drizzle-orm/mysql-core';
 import { sql, relations } from 'drizzle-orm';
 
-import { users } from '../user/schema';
+import { users } from '../users/schema';
 
 export const addresses = mysqlTable('addresses', {
   id: bigint('id', { mode: 'number' }).primaryKey().autoincrement(),

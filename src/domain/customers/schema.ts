@@ -8,7 +8,7 @@ import {
 } from 'drizzle-orm/mysql-core';
 import { sql } from 'drizzle-orm';
 
-import { users } from '../user/schema';
+import { users } from '../users/schema';
 
 export const customers = mysqlTable('customers', {
   id: bigint('id', { mode: 'number' }).primaryKey().autoincrement(),

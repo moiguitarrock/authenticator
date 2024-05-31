@@ -3,7 +3,7 @@ import mysql from 'mysql2/promise';
 
 // all schemas here in order to allow queries builder: 
 // ref: https://orm.drizzle.team/docs/rqb#querying
-import * as users from '../domain/user/schema';
+import * as users from '../domain/users/schema';
 import * as addresses from '../domain/addresses/schema';
 import * as customers from '../domain/customers/schema';
 import * as providers from '../domain/providers/schema';
