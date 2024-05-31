@@ -3,7 +3,6 @@ import {
   ValidationError,
   validationResult,
   Result,
-  FieldValidationError,
 } from 'express-validator';
 
 export default (req: Request, res: Response, next: NextFunction) => {

@@ -1,6 +1,6 @@
 import { Express } from 'express';
 import userRouter from '../domain/user/router';
-import categoriesRouter from '../domain/categories/router';
+import categoriesRouter from '../domain/providerCategories/router';
 
 import isAuth from './middleware/auth';
 import { errorHandler } from './middleware/errorHandler';

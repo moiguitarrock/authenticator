@@ -1,7 +1,13 @@
 import { drizzle } from 'drizzle-orm/mysql2';
 import mysql from 'mysql2/promise';
 
+// all schemas here in order to allow queries builder: 
+// ref: https://orm.drizzle.team/docs/rqb#querying
 import * as users from '../domain/user/schema';
+import * as addresses from '../domain/addresses/schema';
+import * as customers from '../domain/customers/schema';
+import * as providers from '../domain/providers/schema';
+import * as providerCategories from '../domain/providerCategories/schema';
 
 const config: { [key: string]: mysql.ConnectionOptions } = {
   development: {
@@ -19,4 +25,7 @@ const environment = process.env.NODE_ENV || 'development';
 
 export const connection = await mysql.createConnection(config[environment]);
 
-export const db = drizzle(connection, { schema: { ...users }, mode: 'default' });
+export const db = drizzle(connection, {
+  schema: { ...users, ...addresses, ...customers, ...providers, ...providerCategories },
+  mode: 'default',
+});
