@@ -1,13 +1,5 @@
 {
   "version": "6",
   "dialect": "mysql",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "5",
-      "when": 1717183144782,
-      "tag": "0000_tired_dakota_north",
-      "breakpoints": true
-    }
-  ]
+  "entries": []
 }
